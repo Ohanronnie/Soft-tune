@@ -1,0 +1,9 @@
+let express = require('express');
+let app = express();
+let.
+let x = 77;
+app.get('/',function(req,res){
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hjs');
+})
+app.listen(8080)

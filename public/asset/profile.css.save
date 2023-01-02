@@ -1,0 +1,93 @@
+.content img{
+  height: 10vh;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+}
+.content hr{
+  margin-bottom: 2vh;
+}
+.content h3{
+  font-size: 2.5rem;
+  margin: 0;
+  margin-top: 1vh;
+  text-align: center;
+  color: #4F4F4F;
+  
+}
+.content .intro{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  color: #4F4A4F;
+  width: 70%;
+  margin-top: -1vh;
+}
+.content ul li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.content .fa{
+  width: 3vh;
+  height: 3vh;
+  background-color: #323232;
+  border-radius: 10px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1vh;
+  margin-right: 1.5vw;
+  color: #8C8C8C;
+}
+.content span{
+  margin-top: -1vh;
+}
+.content button{
+  width: 50%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.content .h1{
+  margin: -.5vh 0;
+  margin-top: 1vh;
+}
+.content .music{
+  display: flex;
+  align-items: center;
+  border: 1px solid #323232;
+  border-radius: 15px;
+  background-color: rgba(100,101, 115, 0.5);
+  margin-bottom: 1vh;
+}
+.content .music img{
+  height: 3vh;
+  margin: 0;
+  border-radius: 10px;
+  margin-left: 2vw;
+}
+.content .music span{
+  margin-left: 25%;
+  margin-top: 0;
+  color: #FFF;
+  width: 10vw;
+  height: 1rem;
+  overflow: hidden;
+}
+.content .music i{
+  float: left;
+  margin-left: 30%;
+  background-color: rgba(250,250,250,0.4);
+  margin-top: .8vh;
+  color: rgba(0,0,0,0.4);
+}
+.content .music-list{
+  overflow: scroll;
+  height: 30%;
+  
+}

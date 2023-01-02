@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sign Up</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/public/asset/style2.css">
+</head>
+
+<body>
+  <div class="body-img">
+   <i onclick="window.location = '/login' " class="arr">&larr;</i>
+
+  <img src="/public/asset/1567665.png" alt="background">
+  </div>
+  <div class="body">
+    <h1>Create new account</h1>
+    <p class="note">Already registered?<a href="/index.html"> Login here</a></p>
+    <form action="/signin" method="POST" enctype="multipart/form-data">
+      <label for="name">Name</label><br>
+      <input type="text" style="" id="name" name="name" class="name">
+      <p id="text">
+      </p>
+      <label for="password">EMAIL</label><br>
+      <input type="email" id="password" name="mail" class="name"><br>
+      <p id="mail">
+      </p>
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password" class="name"><br>  
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="pass" class="name"><br>
+      <input value="Login" type="button" onclick="validate()" class="btn">
+    </form>
+  </div>
+  <script src="/public/asset/main.js"></script>
+</body>
+</html>

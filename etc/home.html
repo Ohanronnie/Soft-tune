@@ -1,0 +1,308 @@
+<?php
+
+    // session start
+    session_start();
+
+    // include DB connection
+    //include('scripts/db.php');
+$conn = mysqli_connect("localhost", "root", "", "music_site");
+
+
+    if(isset($_SESSION['email'])) { // if user not logged in!
+
+        $email = $_SESSION['email'];
+
+    } else {
+
+      header('Location: ./index.php?message=Please login first!');
+
+    }
+?>
+<?php
+        $getUser = "SELECT * FROM users WHERE email = '$email'";
+        $getUserStatus = mysqli_query($conn,$getUser) or die(mysqli_error($conn));
+        $getUserRow = mysqli_fetch_assoc($getUserStatus);
+      ?>
+
+<?php
+        include "common/snackbar.php";
+      ?>
+
+<h1> welcome mr 
+<?=$getUserRow['name']?>
+
+<br>
+<p> </p>
+
+
+
+
+
+
+<a href="logout.php"> Logout here</a>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <script src="https://kit.fontawesome.com/c46609e39d.js" crossorigin="anonymous"></script>
+
+  <title>HOME</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="homecssjs/style.css">
+</head>
+
+<body>
+  <div class="div">
+    <div class="aside">
+      <img src="dp/<?=$getUserRow['dp']?>">
+      <label class="label-img"><?=$getUserRow['name']?> <i class="fas fa-angle-down"></i></label>
+      <hr class="hr">
+      <span>Menu</span>
+      <ul>
+        <li>
+          <i class="fas fa-home"></i>
+          <span>Discover</span>
+        </li>
+        <li>
+          <i class="fa fa-bar-chart"></i>
+          <span>Trending</span>
+        </li>
+        <li>
+          <i class="fas fa-house-chimney"></i>
+          <span>Streaming</span>
+        </li>
+        <li>
+          <i class="fas fa-house-chimney"></i>
+          <span>Playlist</span>
+        </li>
+        <li>
+          <i class="fas fa-house-chimney"></i>
+          <span>Bookmark</span>
+        </li>
+      </ul>
+      <hr class="hr hr2">
+      <span>Category</span>
+      <ul>
+        <li>
+          <i class="fas fa-plus"></i>
+          <span>Add music</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-user"></i>
+          <span>View Profile</span>
+        </li>
+        <li>
+          <i class="fa fa-sign-out"></i>
+          <span>Logout</span>
+        </li>
+      </ul>
+      <hr class="hr hr2">
+    </div>
+    <div class="header">
+      <div class="head">
+        <h1>Discover</h1>
+        <span>RECENTLY ADDED</span>
+     
+<?php 
+$sqlquery="select * from music order by date DESC limit 4";
+  if ($result=mysqli_query($conn,$sqlquery)) {
+
+    if (mysqli_num_rows($result)>0) {
+
+ ?>
+
+
+ <div class="box">
+   
+   <?php
+    
+while ($row=mysqli_fetch_array($result)) {?>
+        <div class="recent">
+          <img src="musicpic/<?=$row['musicpic']?>">
+          <p>
+              
+<?=$row['title']?>...By <?=$row['artist']?>
+
+          </p>
+          <span><?=$row['username']?></span>
+        </div>
+    
+  <?php
+}}}
+?>    
+        <div class="recent view-more">
+          <div>
+            <i class="fa fa-folder-open"></i>
+          </div>
+          <p>
+            View recently played
+          </p>
+        </div>
+      </div>
+     </div>
+    </div>
+    <div class="content">
+      <span>MOST POPULAR</span>
+      <?php 
+$sqlquery2="select * from music order by date DESC limit 20";
+  if ($result2=mysqli_query($conn,$sqlquery2)) {
+
+    if (mysqli_num_rows($result2)>0) {
+
+ ?>
+
+      <hr>
+      <table>
+        <tr>
+      <?php
+    
+while ($row2=mysqli_fetch_array($result2)) {?>       
+   <?php 
+   
+   
+//$x = 1;
+
+//while($x <= 5) {
+  //echo "The number is: $x <br>";
+  //$x++;
+//}
+
+
+   $number=1;
+   while ($number <= 1){
+     
+  
+   ?>
+   <td class="first"><?=$number?>.</td>
+  <?php 
+  $number++;
+  ?>
+          
+          <td class="second"><?=$row2['title']?>...By
+ <?php echo substr($row2['description'],0,20);?>
+ 
+ 
+ <p> <?=$row2['artist']?></p></td>
+          <td class="third"><?=$row2['username']?></td>
+          <td class="fouth"><span>89</span><span>:</span><span>98</span></td>
+        </tr>
+           <?php
+
+}
+?>
+        <?php
+}}}
+
+?>
+
+  
+      </table>
+    </div>
+    <div class="main">
+      <span>TOP PODCASTER</span>
+      <hr>
+      <div>
+        <img src="/image.jpg">
+        <i class="fa fa-check-circle"></i>
+        <ul>
+          <li class="name">Tony Smart</li>
+          <li>120,000 followers</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/image.jpg">
+        <i class="fa fa-check-circle"></i>
+        <ul>
+          <li class="name">Tony Smart</li>
+          <li>120,000 followers</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/image.jpg">
+        <i class="fa fa-check-circle"></i>
+        <ul>
+          <li class="name">Tony Smart</li>
+          <li>120,000 followers</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/image.jpg">
+        <i class="fa fa-check-circle"></i>
+        <ul>
+          <li class="name">Tony Smart</li>
+          <li>120,000 followers</li>
+        </ul>
+      </div>
+      <div>
+        <img src="/image.jpg">
+        <i class="fa fa-check-circle"></i>
+        <ul>
+          <li class="name">Tony Smart</li>
+          <li>120,000 followers</li>
+        </ul>
+      </div>
+ 
+    </div>
+    <div class="footer">
+      <img src="image.jpg">
+      <ul>
+        <li class="song">Beautiful Mindset in our heart</li>
+        <li>John Doe</li>
+      </ul>
+      <i class="fa backward fa-step-backward"></i>
+      <i onclick="play()" id="play" class="fa play fa-play"></i>
+      <i class="fa forward fa-step-forward"></i>
+      <span id="hr">00</span>:<span id="min">00</span>
+      <input value="0"  oninput="audio.currentTime = this.value;" type="range" class="slider">
+      <span id="sec">00</span>:<span id="milli">00</span>
+    </div>
+  </div>
+  <script>
+var audio = new Audio("/Peterson-Okopi-Walk-Away-ej.mp3");
+  play = () =>{
+    setInterval(() => {
+      var timeRemaining = audio.duration;
+      var seconds = Math.floor(timeRemaining % 60);
+      var hr = Math.floor(audio.duration/60);
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      hr = hr < 10 ? "0" + hr : hr;
+      dur = audio.duration;
+      document.getElementById("hr").innerHTML = hr;
+      document.getElementById("min").innerHTML = seconds;
+     var timeRemaining = audio.duration - audio.currentTime;
+     var sec = Math.floor(timeRemaining / 60)
+     var milli = Math.floor(timeRemaining % 60);
+     if(sec == 0 && milli == 0){
+        audio.play();
+      }
+     sec = sec < 10 ? "0" + sec : sec;
+     milli = milli < 10 ? "0" + milli : milli;
+     document.getElementById("sec").innerHTML=sec;
+     document.getElementById("milli").innerHTML=milli;
+  },1000)
+  audio.play();
+  var change = document.getElementById("play");
+  if(change.getAttribute("class") == "fa play fa-play"){
+  change.setAttribute("class", "fas fa-pause fa play")
+  }
+  else{
+  change.setAttribute("class", "fa play fa-play");
+  audio.pause();
+  }
+  var progress = document.getElementsByTagName('input')[0];
+  progress.max = audio.duration;
+  setInterval(() => {
+  progress.value = audio.currentTime;
+  },1)
+}
+  </script>
+</body>
+</html>

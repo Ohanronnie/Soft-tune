@@ -1,0 +1,36 @@
+class GetData{
+  constructor(){
+  this.response;
+  this.name = document.querySelector('.content .username');
+  this.intro = document.querySelector('.content .bio');
+  this._name_ = document.querySelectorAll('.outline')[0];
+  this._pass_ = document.querySelectorAll('.outline')[1];
+  this.bio = document.querySelectorAll('.outline')[2];
+  this.fetchdata();
+  }
+  async fetchdata(){
+   this.result = await fetch('http://localhost:8080/profileDetails');
+   this.response = await this.result.json();
+   this.name.value = this.response[0].username;
+   this.intro.value = this.response[0].userdata.description;
+ }
+  checkName(){
+   if(this.name.value.length < 4){
+     this._name_.textContent = "username too short";
+     this._name_.style = 'color: red';
+   }
+   else{
+     this._name_.textContent = ""
+    }
+  }
+  checkPass(){
+   if(this.name.value.length < 4){
+     this._name_.textContent = "username too short";
+     this._name_.style = 'color: red';
+   }
+   else{
+     this._name_.textContent = ""
+    } 
+ }
+}
+let data = new GetData();

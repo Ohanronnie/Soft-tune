@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/public/asset/style.css">
+</head>
+
+<body>
+  <div class="body-img">
+  <img src="/public/asset/1567665.png" alt="background">
+  <div class="box"></div>
+  </div>
+  <div class="body">
+    <h1>Login</h1>
+    <% if (message) {%>
+    <p class="note" style="text-align: center; font-size: 12px;  color: red"><%= message %></p>
+    <% } %>
+    <p class="note">Sign in to continue</p>
+    <form action="/index" enctype="multipart/form-data" method="POST">
+      <label for="name">Email address</label><br>
+      <input zoom="100%" type="text" id="name" name="mail" class="name" required><br>
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password" class="name" required><br>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <a href="#" class="fg-pass">Forgot Password?</a>
+    <a href="/signup" class="sign">Signup</a>
+  </div>
+</body>
+</html>
