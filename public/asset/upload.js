@@ -27,8 +27,8 @@ form.addEventListener('submit',function(e){
 	fetch(port + "/upload",{
 		method: "post",
 		body: formdata
-	})
-	window.location = "/home"
+	});
+	//window.location = "/home"
 })
 let myint;
 let unique = (arr) => [...new Set(arr)];
@@ -44,7 +44,7 @@ function loadergo(){
   clearInterval(myint)
  }
 }
-loadergo()
+//loadergo()
 /* async function lastplayed(){
    let respo = await fetch(port + '/musicList');
    let res  = await respo.json();

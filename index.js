@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 let express = require('express');
 let app = express();
 let bodyparser = require('body-parser');
@@ -17,8 +18,8 @@ app.use('/music',express.static('my-uploads'));
 app.use('/cover',express.static('profile-pics'));
 app.use('/images',express.static('my-uploads'));
 let formidable = require('formidable');
-let url = "mongodb+srv://ohanronnieserver:2RNqRolJvJeaREiq@cluster0.3t6f6ty.mongodb.net/?retryWrites=true&w=majority";
 //let url = "mongodb://localhost:27017"
+let url = process.env.MONGO;
 let mongo = require('mongodb').MongoClient;
 let decrypt = text => {
    return Buffer.from(Buffer.from(Buffer.from(text,'base64').toString('utf-8'),'base64').toString('utf-8'),'base64').toString('utf-8')
@@ -159,10 +160,11 @@ let staticUser = (req,res) => {
    let pass = decrypt(req.cookies.Login_data.pass);
      let query = {mail: mail, password: pass}
      console.log(query)
-     insert('user','one',query,function(err,result){
+     select('user','one',query,function(err,result){
      if(result.length != 0){
-       console.log(result[0].username)
-       return result[0].username;
+/*       console.log(result[0].username)
+       return result[0].username;*/
+       return;
        }
        else{
        	res.redirect('/login');

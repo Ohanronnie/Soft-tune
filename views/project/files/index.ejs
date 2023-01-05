@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://kit.fontawesome.com/c46609e39d.js" crossorigin="anonymous"></script>
+  <script async src="https://kit.fontawesome.com/c46609e39d.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/public/asset/home.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Concert+One">
   <title>HOME</title>
@@ -17,9 +17,66 @@
 </head>
 
 <body>
-<div class="preload">
+<!--<div class="preload">
       <div id="loader"></div>
+  </div>-->
+<header>
+  <i class="fa fa-bars"></i>
+  <input class="input-search" placeholder="Search"/>
+</header>
+<aside>
+  <div class="box-x">
+    <div>
+      
+    </div>
+    <span>SOFT<span style="color: darkorange">TUNE</span></span>
   </div>
+  <span class="category-top">MENU</span>
+  <ul>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa fa-house-chimney"></i>
+      <span>Discover</span>
+    </li>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa-solid fa-arrow-trend-up"></i>
+      <span>Trending</span>
+    </li>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa-solid fa-music"></i>
+      <span>Playlist</span>
+    </li>
+  </ul>
+  <span class="category-top">ACTIONS</span>
+  <ul>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa fa-user-edit"></i>
+      <span>Edit Profile</span>
+    </li>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa fa-cloud-upload"></i>
+      <span>Upload music</span>
+    </li>
+    <li>
+      &nbsp;&nbsp;
+      <i class="fa fa-cog"></i>
+      <span>Settings</span>
+    </li>
+    <li>
+      &nbsp;&nbsp;
+      <i class="logout">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIj48cGF0aCBkPSJtNiAzMGgxMmEyLjAwMjMgMi4wMDIzIDAgMCAwIDItMnYtM2gtMnYzaC0xMnYtMjRoMTJ2M2gydi0zYTIuMDAyMyAyLjAwMjMgMCAwIDAgLTItMmgtMTJhMi4wMDIzIDIuMDAyMyAwIDAgMCAtMiAydjI0YTIuMDAyMyAyLjAwMjMgMCAwIDAgMiAyeiIgZmlsbD0iIzY5Njk2OSIvPjxwYXRoIGQ9Im0yMC41ODYgMjAuNTg2IDMuNTg2LTMuNTg2aC0xNC4xNzJ2LTJoMTQuMTcybC0zLjU4Ni0zLjU4NiAxLjQxNC0xLjQxNCA2IDYtNiA2eiIgZmlsbD0iIzY5Njk2OSIvPjxwYXRoIGQ9Im0wIDBoMzJ2MzJoLTMyeiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==" alt=""/>
+      </i>
+      <span>Logout</span>
+    </li>
+  </ul>
+
+
+</aside>
   <div class="div">
     <div class="aside">
     <span class="logo">Soft<span>tune</span></span>
@@ -179,6 +236,12 @@
         </ul>
 </div>
 </nav>
+<script>
+  const bars = document.querySelector('.fa-bars');
+  bars.addEventListener('click',function(){
+    document.querySelector('aside').classList.toggle('active');
+  })
+</script>
   <script src="/public/asset/index.js"></script>
   <script src="/public/asset/lastPlayed.js"></script>
 </body>

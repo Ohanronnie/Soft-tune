@@ -45,7 +45,7 @@ function load(){
   document.querySelector('.div').setAttribute('style','visibility: visible')
  }
 }
-setInterval(load,1)
+//setInterval(load,1)
 //let now_playing = document.querySelector(".now-playing");
      let updateTimer;
      let track_index = 0;

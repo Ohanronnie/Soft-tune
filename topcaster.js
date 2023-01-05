@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 router.post('/',function(req,res){
-/*	let [insert,select,setdata] = [req.opt.insert,req.opt.select,req.opt.setdata];
+	let [insert,select,setdata] = [req.opt.insert,req.opt.select,req.opt.setdata];
 	const mostStreamedUser = [];
 	let topStreamed = [];
     select('music','many',{},function(err,result){
@@ -21,8 +21,8 @@ router.post('/',function(req,res){
 			})
 		}
    	/*if(err) console.log(err);
-   	console.log(result)*//*
-   });*/
-   res.json([])
+   	console.log(result)*/
+   });
+   //res.json([])
 });
 module.exports = router;
